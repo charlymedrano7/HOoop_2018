@@ -1,21 +1,22 @@
 class Fila(object):
     """Clase base de fila"""
 
-    def __init__(self):
-         """constructor de la clase Fila """
-        self.enfila= 0
-        self.fila = []
+    def __init__(self):            #Esto es el constructor de la clase
+        """constructor de la clase Fila """
+        self.enfila= 0                #esto me dice la cant de clientes que tengo en fila
+        self.fila = []                #la fila prop. dicha es una lista, al comienzo vacía.
 
-class FilaPreferencial(Fila):
-    """Clase de la fila de los clientes preferenciales"""        
-
+class FilaPreferencial(Fila):				  #Esta fila hereda los atributos de Fila
+    """Clase de la fila de los clientes preferenciales""" #Si quisiera agregarle atributos debería agregar un constructo       
+							  #con __init__
     def insertar(self, cliente):
         """Inserta un nuevo cliente en la fila preferencial"""
-        pass
+        self.fila.append(cliente)                          #appendea el cliente a la lista fila creada en __init__
+        pass                                               #es como el continue en fortran
 
     def atender(self):
         """Atiende al proximo cliente prederencial"""
-        self.enfila-=1
+        self.enfila-=1                                     #el SELF es una referencia al objeto
         self.fila.pop(0)
     
     def abrircajanueva(self,maxenfila,filanueva):
@@ -29,20 +30,23 @@ class FilaGeneral(Fila):
 
     def insertar(self, cliente):
         """Inserta un nuevo cliente en la fila no preferencial"""
+        self.fila.append(cliente)
         pass
 
     def atender(self):
         """Atiende al proximo cliente prederencial"""
+        self.enfila-=1                                     #el SELF es una referencia al objeto
+        self.fila.pop(0)
         pass      
 
     
 
 class cliente(object):
-     """clase cliente """
+    """clase cliente """
     def __init__(self,dni):
-         """ constructor de la clase cliente """
+        """ constructor de la clase cliente """
         self.dni=dni
-        self.categoria=None
+        self.categoria='General'
     def modificarcategoria(self, categoria):
         """modifica el atributo categoria del cliente """
         pass
@@ -50,4 +54,3 @@ class cliente(object):
     
 if __name__ == "__main__":
     """ simular una fila en una entidad bancaria"""
-    pass
