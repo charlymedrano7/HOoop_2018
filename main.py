@@ -12,6 +12,7 @@ class FilaPreferencial(Fila):				  #Esta fila hereda los atributos de Fila
     def insertar(self, cliente):
         """Inserta un nuevo cliente en la fila preferencial"""
         self.fila.append(cliente)                          #appendea el cliente a la lista fila creada en __init__
+        self.enfila += 1
         pass                                               #es como el continue en fortran
 
     def atender(self):
@@ -31,6 +32,7 @@ class FilaGeneral(Fila):
     def insertar(self, cliente):
         """Inserta un nuevo cliente en la fila no preferencial"""
         self.fila.append(cliente)
+        self.enfila += 1
         pass
 
     def atender(self):
@@ -46,9 +48,10 @@ class cliente(object):
     def __init__(self,dni):
         """ constructor de la clase cliente """
         self.dni=dni
-        self.categoria='General'
+        self.categoria='general'
     def modificarcategoria(self, categoria):
         """modifica el atributo categoria del cliente """
+        self.categoria=categoria
         pass
   
     
